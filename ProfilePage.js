@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function App() {
+export default function ProfilePage() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
