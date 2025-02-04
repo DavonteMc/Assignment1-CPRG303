@@ -1,6 +1,16 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, ScrollView, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  FlatList,
+  Button,
+  Pressable,
+} from "react-native";
 import Icon from "react-native-vector-icons/AntDesign"; // Using AntDesign icons
+import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const App = () => {
   const posts = [
@@ -53,11 +63,22 @@ const App = () => {
     <View style={styles.container}>
       {/* Header */}
       <View style={styles.header}>
-      <Image source={require('./src/components/instaLogo.png')} alt="My Image" style={styles.instaLogo}/>
-      <Image source={require('./src/components/arrowDown.png')} alt="My Image" style={styles.arrowDown}/>
+        <Image
+          source={require("./src/components/instaLogo.png")}
+          alt="My Image"
+          style={styles.instaLogo}
+        />
+        <Image
+          source={require("./src/components/arrowDown.png")}
+          alt="My Image"
+          style={styles.arrowDown}
+        />
         <View style={styles.headerIcons}>
           <Icon name="hearto" size={24} color="black" style={styles.icon} />
-          <Image source={require("./assets/paper-plane.png")} style={styles.shareButton} />
+          <Image
+            source={require("./assets/paper-plane.png")}
+            style={styles.shareButton}
+          />
         </View>
       </View>
 
@@ -70,11 +91,15 @@ const App = () => {
         renderItem={({ item }) => (
           <View>
             <View style={styles.storiesContainerPFP}>
-              <Image source={require('./src/components/murk.jpg')} alt="My Image" style={styles.storiesPFP}/>
+              <Image
+                source={require("./src/components/murk.jpg")}
+                alt="My Image"
+                style={styles.storiesPFP}
+              />
             </View>
-              <View style = {styles.storiesContainerTXT}>
-                <Text style = {{fontWeight: "bold"}}>{item.username}</Text>
-              </View>
+            <View style={styles.storiesContainerTXT}>
+              <Text style={{ fontWeight: "bold" }}>{item.username}</Text>
+            </View>
           </View>
         )}
       />
@@ -84,24 +109,44 @@ const App = () => {
         {posts.map((post) => (
           <View key={post.id} style={styles.post}>
             <View style={styles.pfpAndUserContainer}>
-             <Image
-               source={require('./src/components/hawaii.webp')} alt="My Image" 
-              style={styles.pfp}
-              
-            />
-            <Text style={[styles.username, {fontWeight: "bold", marginTop: 9,}]}>{post.username}</Text>
-            <Image source={require('./src/components/three dots.png')} alt="My Image" style={styles.threeDots}/>
+              <Image
+                source={require("./src/components/hawaii.webp")}
+                alt="My Image"
+                style={styles.pfp}
+              />
+              <Text
+                style={[styles.username, { fontWeight: "bold", marginTop: 9 }]}
+              >
+                {post.username}
+              </Text>
+              <Image
+                source={require("./src/components/three dots.png")}
+                alt="My Image"
+                style={styles.threeDots}
+              />
             </View>
             <Image
-               source={require('./src/components/hawaii.webp')} alt="My Image" 
+              source={require("./src/components/hawaii.webp")}
+              alt="My Image"
               style={styles.postImage}
             />
 
             {/* Post Action Icons */}
             <View style={styles.iconsContainer}>
-              <Icon name="hearto" size={28} color="black" style={styles.icons1} />
-              <Image source={require("./assets/comment.png")} style={styles.icons1} />
-              <Image source={require("./assets/paper-plane.png")} style={styles.icons1} />
+              <Icon
+                name="hearto"
+                size={28}
+                color="black"
+                style={styles.icons1}
+              />
+              <Image
+                source={require("./assets/comment.png")}
+                style={styles.icons1}
+              />
+              <Image
+                source={require("./assets/paper-plane.png")}
+                style={styles.icons1}
+              />
               <Image
                 source={require("./assets/bookmark.png")}
                 style={{ height: 28, width: 40, margin: 1, marginLeft: "40%" }}
@@ -111,22 +156,26 @@ const App = () => {
             {/* Post Likes and Comments */}
             <View style={styles.descriptionContainer}>
               <Text>
-                Liked by <Text style={{ fontWeight: "bold"}}>paisley.print48</Text> and{" "}
+                Liked by{" "}
+                <Text style={{ fontWeight: "bold" }}>paisley.print48</Text> and{" "}
                 <Text style={{ fontWeight: "bold" }}>7 others</Text>
               </Text>
 
               <Text>
-                <Text style={{ fontWeight: "bold" }}>french_fries</Text> Fresh shot on a sunny day
+                <Text style={{ fontWeight: "bold" }}>french_fries</Text> Fresh
+                shot on a sunny day
               </Text>
 
               <Text style={{ color: "#E7EAE5" }}>View all 15 comments</Text>
 
               <Text>
-                <Text style={{ fontWeight: "bold" }}>lilwat.838</Text> Awesome looks
+                <Text style={{ fontWeight: "bold" }}>lilwat.838</Text> Awesome
+                looks
               </Text>
 
               <Text>
-                <Text style={{ fontWeight: "bold" }}>pia.in.a.pott</Text> Gorg. Looks
+                <Text style={{ fontWeight: "bold" }}>pia.in.a.pott</Text> Gorg.
+                Looks
               </Text>
 
               <Text>
@@ -141,10 +190,22 @@ const App = () => {
       <View style={styles.navBar}>
         <Icon name="home" size={30} color="black" style={styles.navIcon} />
         <Icon name="search1" size={30} color="black" style={styles.navIcon} />
-        <Icon name="pluscircleo" size={30} color="black" style={styles.navIcon} />
+        <Icon
+          name="pluscircleo"
+          size={30}
+          color="black"
+          style={styles.navIcon}
+        />
 
-       {/* Button Here */}
-       <Text>place holder for button</Text>
+        {/* Button Here */}
+        <Button
+          icon={require("./images/video.png")}
+          style={{ color: "black", width: 50, height: 50, marginRight: 8 }}
+          title="Alert"
+          onPress={() => {
+            alert("Alert Button Pressed");
+          }}
+        ></Button>
 
         <Icon name="user" size={30} color="black" style={styles.navIcon} />
       </View>
@@ -158,7 +219,7 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   descriptionContainer: {
-    marginLeft:19,
+    marginLeft: 19,
 
     flex: 1,
   },
@@ -178,29 +239,29 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   threeDots: {
-    marginTop:13,
+    marginTop: 13,
     marginLeft: 220,
-    height:18,
-    width:18,
+    height: 18,
+    width: 18,
   },
   icon: {
     marginLeft: 20,
     marginTop: 10,
   },
-  shareButton:{
-    height:28,
+  shareButton: {
+    height: 28,
     width: 28,
     marginLeft: 10,
     marginTop: 8,
   },
-  instaLogo:{
-    height:40,
-    width:96,
+  instaLogo: {
+    height: 40,
+    width: 96,
     marginTop: 20,
   },
-  arrowDown:{
-    height:15,
-    width:15,
+  arrowDown: {
+    height: 15,
+    width: 15,
     marginRight: 130,
     marginTop: 24,
   },
@@ -223,11 +284,11 @@ const styles = StyleSheet.create({
     borderColor: "#ff8501",
   },
   pfp: {
-    borderRadius:30,
-    borderCurve:25,
-    height:35,
-    width:35,
-    marginLeft:10,
+    borderRadius: 30,
+    borderCurve: 25,
+    height: 35,
+    width: 35,
+    marginLeft: 10,
     borderWidth: 3,
     borderColor: "#ff8501",
   },
@@ -237,26 +298,26 @@ const styles = StyleSheet.create({
     gap: 12,
   },
 
-  storiesPFP:{
-    borderRadius:90,
-    borderCurve:90,
-    height:75,
-    width:75,
-    marginLeft:5,
+  storiesPFP: {
+    borderRadius: 90,
+    borderCurve: 90,
+    height: 75,
+    width: 75,
+    marginLeft: 5,
     borderWidth: 3,
     borderColor: "#ff8501",
   },
-  storiesContainerPFP:{
+  storiesContainerPFP: {
     flexDirection: "row",
-    paddingLeft:6,
+    paddingLeft: 6,
   },
-  storiesContainerTXT:{
+  storiesContainerTXT: {
     flexDirection: "row",
     paddingLeft: 35,
   },
 
   post: {
-    marginTop:2,
+    marginTop: 2,
     marginBottom: 15,
     borderBottomWidth: 0.5,
     borderColor: "#ddd",
